@@ -1,0 +1,6 @@
+*.user*
+*.qm
+.directory
+*.autosave
+*.*~
+*.*#
