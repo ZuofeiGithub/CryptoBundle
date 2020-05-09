@@ -73,6 +73,16 @@ public:
     }
 
     /**
+     * @brief release : release data control and return data pointer to new holder
+     *                  it would be better to first getting data size using getSize methods
+     *                  before invoking release method
+     * @return
+     */
+    const char* data(){
+        return m_data;
+    }
+
+    /**
      * @brief getSize : returns size of the char array which holds data
      * @return
      */

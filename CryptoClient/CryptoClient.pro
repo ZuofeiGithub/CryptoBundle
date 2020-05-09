@@ -6,3 +6,5 @@ CONFIG -= qt
 SOURCES += \
         main.cpp
 LIBS += -L../lib -lCryptoTools
+
+CONFIG += c++17

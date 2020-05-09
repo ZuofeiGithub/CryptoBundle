@@ -1,21 +1,21 @@
-//#include "bcrypt/BCrypt.hpp"
 #include <iostream>
 #include "../CryptoTools/cryptotools.h"
 
 int main(){
-    CryptoTools cryptor;
-//    std::string right_password = "right_password";
-//    std::string wrong_password = "wrong_password";
+    ByteArray valid_data = "{\"secure_code\":\"8ryh439rh4rn3443\"}";
+    ByteArray invalid_data = "{\"secure_code\":\"7RYh439rh4rn3443\"}";
 
-//    std::cout << "generate hash... " << std::flush;
-//    std::string hash = BCrypt::generateHash(right_password, 12);
-//    std::cout << "done." << std::endl;
+    std::cout << "generate hash... " << std::flush<<std::endl;
+    AnyMap algorithm_params;
+    algorithm_params.insert({"workload",12});
+    ByteArray hash = CryptoTools::generateHash(BCRYPT_HASH, valid_data, algorithm_params);
+    std::cout << "done. Hash: " <<hash.data()<< std::endl;
 
-//    std::cout << "checking right password: " << std::flush
-//              << BCrypt::validatePassword(right_password,hash) << std::endl;
+    std::cout << "checking right password: " << std::flush
+              << CryptoTools::validateDataHash(BCRYPT_HASH, valid_data, hash) << std::endl;
 
-//    std::cout << "checking wrong password: " << std::flush
-//              << BCrypt::validatePassword(wrong_password,hash) << std::endl;
+    std::cout << "checking wrong password: " << std::flush
+              << CryptoTools::validateDataHash(BCRYPT_HASH, invalid_data, hash) << std::endl<< std::endl;
 
     return 0;
 }

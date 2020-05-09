@@ -25,13 +25,13 @@ SOURCES += \
     cryptotools.cpp
 
 HEADERS += \
-    bcrypt/include/bcrypt/BCrypt.hpp \
-    bcrypt/include/bcrypt/bcrypt.h \
-    bcrypt/include/bcrypt/crypt.h \
-    bcrypt/include/bcrypt/crypt_blowfish.h \
-    bcrypt/include/bcrypt/crypt_gensalt.h \
-    bcrypt/include/bcrypt/ow-crypt.h \
-    bcrypt/include/bcrypt/winbcrypt.h \
+    bcrypt/inc/BCrypt.hpp \
+    bcrypt/inc/bcrypt.h \
+    bcrypt/inc/crypt.h \
+    bcrypt/inc/crypt_blowfish.h \
+    bcrypt/inc/crypt_gensalt.h \
+    bcrypt/inc/ow-crypt.h \
+    bcrypt/inc/winbcrypt.h \
     bcrypt/src/x86.S \
     bytearray.h \
     cryptotools.h
@@ -46,5 +46,9 @@ DISTFILES += \
     bcrypt/README.md
 
 
-INCLUDEPATH += "bcrypt/include/bcrypt"
+#INCLUDEPATH += bcrypt/include/bcrypt
 DESTDIR = ../lib
+
+INCLUDEPATH+= \
+    bcrypt/inc \
+    common/
