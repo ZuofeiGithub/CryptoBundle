@@ -11,6 +11,9 @@ int main(){
     ByteArray hash = CryptoTools::generateHash(BCRYPT_HASH, valid_data, algorithm_params);
     std::cout << "done. Hash: " <<hash.data()<< std::endl;
 
+    auto tokens =hash.splite('$');
+    std::cout << "workload: " <<tokens[1].data()<< std::endl;
+
     std::cout << "checking right password: " << std::flush
               << CryptoTools::validateDataHash(BCRYPT_HASH, valid_data, hash) << std::endl;
 
