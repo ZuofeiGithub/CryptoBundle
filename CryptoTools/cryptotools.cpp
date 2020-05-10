@@ -27,6 +27,11 @@ ByteArray CryptoTools::generateHash(HashingMethod method, ByteArray data, AnyMap
 
 bool CryptoTools::validateDataHash(HashingMethod method, ByteArray data, ByteArray hash, AnyMap params)
 {
+    if(params.size()>0)
+    {
+        //extract params
+    }
+
     if(method==BCRYPT_HASH)
     {
         return BCrypt::validatePassword(data, hash);

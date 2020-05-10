@@ -24,6 +24,11 @@ SOURCES += \
     bytearray.cpp \
     cryptotools.cpp
 
+
+INCLUDEPATH+= \
+    bcrypt/inc \
+    ./
+
 HEADERS += \
     bcrypt/inc/BCrypt.hpp \
     bcrypt/inc/bcrypt.h \
@@ -45,10 +50,5 @@ unix {
 DISTFILES += \
     bcrypt/README.md
 
-
-#INCLUDEPATH += bcrypt/include/bcrypt
 DESTDIR = ../lib
 
-INCLUDEPATH+= \
-    bcrypt/inc \
-    common/
