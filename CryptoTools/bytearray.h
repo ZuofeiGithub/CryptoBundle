@@ -11,6 +11,7 @@
 #ifndef BYTEARRAY_H
 #define BYTEARRAY_H
 
+#include<vector>
 
 class ByteArray
 {
@@ -87,6 +88,15 @@ public:
      * @return
      */
     unsigned long getSize(){ return m_data_size;}
+
+    ByteArray mid(unsigned long from,unsigned long len)
+    {
+        ByteArray result(len);
+        std::copy(m_data+from,m_data+from+len,result.m_data);
+        return  result;
+    }
+
+    std::vector<ByteArray> splite(char delimiter);
 
 private:
     unsigned long m_data_size;
