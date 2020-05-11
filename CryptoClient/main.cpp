@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../CryptoTools/cryptotools.h"
+#include "cryptotools.h"
+#include "bytearray.h"
 
 int main(){
     ByteArray valid_data = "{\"secure_code\":\"8ryh439rh4rn3443\"}";

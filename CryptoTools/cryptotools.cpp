@@ -5,7 +5,7 @@ CryptoTools::CryptoTools()
 
 }
 
-ByteArray CryptoTools::generateHash(HashingMethod method, ByteArray data, AnyMap params)
+ByteArray CryptoTools::generateHash(HashingMethod method,const ByteArray data, AnyMap params)
 {
     if(method==BCRYPT_HASH)
     {
@@ -25,7 +25,7 @@ ByteArray CryptoTools::generateHash(HashingMethod method, ByteArray data, AnyMap
 }
 
 
-bool CryptoTools::validateDataHash(HashingMethod method, ByteArray data, ByteArray hash, AnyMap params)
+bool CryptoTools::validateDataHash(HashingMethod method, const ByteArray data,const ByteArray hash, AnyMap params)
 {
     if(params.size()>0)
     {
