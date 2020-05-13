@@ -9,6 +9,7 @@ ByteArray CryptoTools::generateHash(HashingMethod method,const ByteArray data, A
 {
     if(method==BCRYPT_HASH)
     {
+        assert(data.getSize()<=MAXIMUM_DATA_LENGTH);
         int workload = 12;
         if(params.size()>0)
         {
@@ -34,6 +35,7 @@ bool CryptoTools::validateDataHash(HashingMethod method, const ByteArray data,co
 
     if(method==BCRYPT_HASH)
     {
+        assert(data.getSize()<=MAXIMUM_DATA_LENGTH);
         return BCrypt::validatePassword(data, hash);
     }
     return false;

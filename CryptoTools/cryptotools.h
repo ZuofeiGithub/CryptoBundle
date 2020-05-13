@@ -5,24 +5,23 @@
 #include "bytearray.h"
 #include <map>
 #include <any>
+#include <cassert>
 
 //AnyMap is similiar to the Qt QVariantMap data type
 typedef std::map<std::string,std::any> AnyMap;
-
+#define MAXIMUM_DATA_LENGTH 72
+//##################################################################################
+//#IMPORTANT
+//##################################################################################
+//for BCrypt algorithm maximum length of given data must be less-than/equal to 72
+//according to the algorithm implementation
+//##################################################################################
 enum HashingMethod{BCRYPT_HASH=1,SHA256_HASH};
 
 class CryptoTools
 {
 public:
     CryptoTools();
-
-    static std::string generateHash(const std::string & password, int workload = 12){
-        return BCrypt::generateHash(password,workload);
-    }
-
-    static bool validatePassword(const std::string & password, const std::string & hash){
-        return BCrypt::validatePassword(password,hash);
-    }
 
     /**
      * @brief generateHash using the specified method, optional method parameter list is given via AnyMap
